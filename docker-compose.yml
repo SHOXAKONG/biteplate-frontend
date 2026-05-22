@@ -1,0 +1,15 @@
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: biteplate-frontend:local
+    container_name: biteplate-frontend
+    ports:
+      - "${FRONTEND_PORT:-3000}:80"
+    networks:
+      - biteplate-frontend
+
+networks:
+  biteplate-frontend:
+    driver: bridge

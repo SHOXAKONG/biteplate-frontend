@@ -1,0 +1,76 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: biteplate-frontend
+  namespace: biteplate-frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: biteplate-frontend
+  template:
+    metadata:
+      labels:
+        app: biteplate-frontend
+    spec:
+      containers:
+        - name: frontend
+          image: ghcr.io/REPLACE_OWNER/biteplate-frontend:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
+          envFrom:
+            - configMapRef:
+                name: frontend-config
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 3000
+            initialDelaySeconds: 10
+            periodSeconds: 10
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "256Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: biteplate-frontend
+  namespace: biteplate-frontend
+spec:
+  selector:
+    app: biteplate-frontend
+  ports:
+    - port: 80
+      targetPort: 3000
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: biteplate-frontend
+  namespace: biteplate-frontend
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure
+    traefik.ingress.kubernetes.io/router.tls: "true"
+spec:
+  ingressClassName: traefik
+  tls:
+    - hosts:
+        - app.biteplate.example
+      secretName: app-biteplate-tls
+  rules:
+    - host: app.biteplate.example
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: biteplate-frontend
+                port:
+                  number: 80

@@ -1,0 +1,10 @@
+node_modules
+dist
+dist-ssr
+.vite
+.cache
+.env
+.git
+.DS_Store
+*.log
+README.md

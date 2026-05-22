@@ -1,0 +1,23 @@
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    image: biteplate-frontend:dev
+    container_name: biteplate-frontend
+    # !override replaces the inherited `ports` list from docker-compose.yml so
+    # the dev container doesn't end up bound to BOTH host:3000->80 (prod nginx)
+    # and host:3000->3000 (vite). `!reset` would have wiped it without
+    # adding the new entries. Requires Docker Compose 2.24+.
+    ports: !override
+      - "${FRONTEND_PORT:-3000}:3000"
+    environment:
+      VITE_API_BASE: http://localhost:8000/api/v1
+    volumes:
+      - ./:/app
+      - biteplate_fe_node_modules:/app/node_modules
+    networks:
+      - biteplate-frontend
+
+volumes:
+  biteplate_fe_node_modules:
