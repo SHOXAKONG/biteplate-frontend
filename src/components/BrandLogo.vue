@@ -9,7 +9,7 @@ withDefaults(
 <template>
   <div class="flex items-center gap-2.5">
     <div
-      class="relative flex items-center justify-center rounded-xl bg-gradient-to-br from-violet-500 via-fuchsia-500 to-amber-400 text-white shadow-lg shadow-violet-500/30"
+      class="relative flex items-center justify-center rounded-xl bg-gradient-to-br from-emerald-500 via-amber-500 to-amber-400 text-white shadow-lg shadow-emerald-500/30"
       :class="{
         'w-8 h-8': size === 'sm',
         'w-10 h-10': size === 'md',
@@ -35,7 +35,7 @@ withDefaults(
       >
         BitePlate
       </div>
-      <div v-if="tagline" class="text-xs text-zinc-500">Smart Restaurant OS</div>
+      <div v-if="tagline" class="text-xs text-stone-500">Smart Restaurant OS</div>
     </div>
   </div>
 </template>

@@ -15,7 +15,7 @@ const props = defineProps<{ role: string }>();
 const meta = computed(() => {
   switch (props.role) {
     case "admin":
-      return { color: "violet" as const, icon: ShieldCheckIcon };
+      return { color: "emerald" as const, icon: ShieldCheckIcon };
     case "manager":
       return { color: "indigo" as const, icon: BriefcaseIcon };
     case "head_chef":

@@ -49,7 +49,7 @@ async function command(kind: string, order_id: string) {
 
 const cols = [
   { key: "pending" as const, title: "Pending", color: "amber" as const },
-  { key: "in_progress" as const, title: "In progress", color: "violet" as const },
+  { key: "in_progress" as const, title: "In progress", color: "emerald" as const },
   { key: "completed" as const, title: "Completed", color: "emerald" as const },
 ];
 </script>
@@ -59,7 +59,7 @@ const cols = [
     <div class="flex items-center justify-between mb-6">
       <div>
         <h1 class="text-3xl font-semibold tracking-tight">Kitchen</h1>
-        <p class="text-zinc-500 mt-1">History: {{ snap.history_size }} commands</p>
+        <p class="text-stone-500 mt-1">History: {{ snap.history_size }} commands</p>
       </div>
       <div class="flex gap-2">
         <UButton variant="soft-amber" @click="undo">
@@ -79,16 +79,16 @@ const cols = [
             <UBadge :color="col.color">{{ (snap[col.key] as any[]).length }}</UBadge>
           </div>
         </template>
-        <div v-if="(snap[col.key] as any[]).length === 0" class="py-6 text-center text-sm text-zinc-500">
+        <div v-if="(snap[col.key] as any[]).length === 0" class="py-6 text-center text-sm text-stone-500">
           Empty
         </div>
         <div v-else class="space-y-2">
           <div
             v-for="ticket in (snap[col.key] as any[])"
             :key="String(ticket.order_id)"
-            class="p-3 rounded-lg bg-zinc-50 dark:bg-zinc-900 ring-1 ring-zinc-100 dark:ring-zinc-800"
+            class="p-3 rounded-lg bg-stone-50 dark:bg-slate-900 ring-1 ring-stone-100 dark:ring-slate-800"
           >
-            <div class="font-mono text-xs text-zinc-500">
+            <div class="font-mono text-xs text-stone-500">
               {{ String(ticket.order_id).slice(0, 8) }}
             </div>
             <div v-if="col.key === 'pending'" class="mt-2 flex flex-wrap gap-2">

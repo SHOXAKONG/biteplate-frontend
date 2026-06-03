@@ -9,8 +9,8 @@ defineEmits<{ "update:modelValue": [boolean] }>();
     :model-value="modelValue"
     @update:model-value="(v) => $emit('update:modelValue', v)"
     :class="[
-      modelValue ? 'bg-violet-600' : 'bg-zinc-300 dark:bg-zinc-700',
-      'relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition focus:outline-none focus:ring-2 focus:ring-violet-500 focus:ring-offset-2',
+      modelValue ? 'bg-emerald-600' : 'bg-stone-300 dark:bg-slate-700',
+      'relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2',
     ]"
   >
     <span

@@ -38,11 +38,11 @@ const activeTables = computed(() => tables.value.filter((t) => t.status === "occ
   <DashboardLayout>
     <div class="mb-8">
       <h1 class="text-3xl font-semibold tracking-tight">Manager dashboard</h1>
-      <p class="text-zinc-500 mt-1">Today's operations at a glance.</p>
+      <p class="text-stone-500 mt-1">Today's operations at a glance.</p>
     </div>
 
     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-      <StatCard label="Open orders" :value="orders.length" :icon="ClipboardDocumentListIcon" accent="violet" />
+      <StatCard label="Open orders" :value="orders.length" :icon="ClipboardDocumentListIcon" accent="emerald" />
       <StatCard label="Revenue (current)" :value="`£${revenue}`" :icon="BanknotesIcon" accent="emerald" />
       <StatCard label="Tables in use" :value="activeTables" :icon="FireIcon" accent="amber" />
       <StatCard label="Total tables" :value="tables.length" :icon="RectangleGroupIcon" accent="sky" />
@@ -50,23 +50,23 @@ const activeTables = computed(() => tables.value.filter((t) => t.status === "occ
 
     <UCard>
       <template #header><h2 class="font-semibold">Top items</h2></template>
-      <div v-if="topItems.length === 0" class="text-sm text-zinc-500 py-6 text-center">
+      <div v-if="topItems.length === 0" class="text-sm text-stone-500 py-6 text-center">
         Once orders are confirmed, top items appear here.
       </div>
       <div v-else class="space-y-3">
         <div
           v-for="(item, idx) in topItems"
           :key="item.name"
-          class="flex items-center gap-4 p-3 rounded-lg bg-zinc-50 dark:bg-zinc-900"
+          class="flex items-center gap-4 p-3 rounded-lg bg-stone-50 dark:bg-slate-900"
         >
           <div
-            class="w-8 h-8 rounded-lg bg-gradient-to-br from-violet-500 to-fuchsia-500 text-white flex items-center justify-center font-semibold"
+            class="w-8 h-8 rounded-lg bg-gradient-to-br from-emerald-500 to-amber-500 text-white flex items-center justify-center font-semibold"
           >
             {{ idx + 1 }}
           </div>
           <div class="flex-1">
             <div class="font-medium">{{ item.name }}</div>
-            <div class="text-xs text-zinc-500">
+            <div class="text-xs text-stone-500">
               {{ item.times_ordered }} ordered · £{{ item.revenue.toFixed(2) }}
             </div>
           </div>

@@ -112,15 +112,15 @@ function isUpcoming(r: Reservation) {
     <div class="flex items-center justify-between mb-6">
       <div>
         <h1 class="text-3xl font-semibold tracking-tight">Reservations</h1>
-        <p class="text-zinc-500 mt-1">Your bookings — past, upcoming, cancelled.</p>
+        <p class="text-stone-500 mt-1">Your bookings — past, upcoming, cancelled.</p>
       </div>
       <UButton @click="showCreate = true">
         <PlusIcon class="w-4 h-4" /> Book a table
       </UButton>
     </div>
 
-    <div v-if="mine.length === 0" class="py-16 text-center text-zinc-500">
-      <CalendarDaysIcon class="w-12 h-12 mx-auto mb-4 text-zinc-400" />
+    <div v-if="mine.length === 0" class="py-16 text-center text-stone-500">
+      <CalendarDaysIcon class="w-12 h-12 mx-auto mb-4 text-slate-400" />
       <p>No reservations yet</p>
     </div>
 
@@ -131,15 +131,15 @@ function isUpcoming(r: Reservation) {
             class="w-12 h-12 rounded-lg text-white flex items-center justify-center bg-gradient-to-br"
             :class="
               r.status === 'cancelled'
-                ? 'from-zinc-400 to-zinc-500'
-                : 'from-violet-500 to-fuchsia-500'
+                ? 'from-slate-400 to-stone-500'
+                : 'from-emerald-500 to-amber-500'
             "
           >
             <CalendarDaysIcon class="w-6 h-6" />
           </div>
           <div class="flex-1 min-w-0">
             <div class="font-medium">{{ new Date(r.booking_time).toLocaleString() }}</div>
-            <div class="text-sm text-zinc-500">
+            <div class="text-sm text-stone-500">
               {{ r.party_size }} guests · table
               {{ tables.find((t) => t.id === r.table_id)?.number || "?" }} · {{ r.customer_phone }}
             </div>

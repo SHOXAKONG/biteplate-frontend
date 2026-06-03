@@ -201,9 +201,9 @@ function describeDecorator(d: DecoratorSpec): string {
         <div>
           <h1 class="text-3xl font-semibold tracking-tight">
             Place order
-            <span v-if="table" class="text-zinc-500 font-normal">— Table #{{ table.number }}</span>
+            <span v-if="table" class="text-stone-500 font-normal">— Table #{{ table.number }}</span>
           </h1>
-          <p class="text-zinc-500 mt-1 text-sm">Pick items, add decorators, confirm.</p>
+          <p class="text-stone-500 mt-1 text-sm">Pick items, add decorators, confirm.</p>
         </div>
       </div>
     </div>
@@ -236,25 +236,25 @@ function describeDecorator(d: DecoratorSpec): string {
             </div>
           </template>
 
-          <div v-if="filteredMenu.length === 0" class="py-10 text-center text-sm text-zinc-500">
+          <div v-if="filteredMenu.length === 0" class="py-10 text-center text-sm text-stone-500">
             No items in this category yet.
           </div>
           <div class="grid sm:grid-cols-2 gap-2">
             <button
               v-for="m in filteredMenu"
               :key="m.id"
-              class="text-left p-3 rounded-lg ring-1 ring-zinc-200 dark:ring-zinc-800 hover:ring-violet-400 dark:hover:ring-violet-500 hover:shadow-sm transition bg-white dark:bg-zinc-900"
+              class="text-left p-3 rounded-lg ring-1 ring-stone-200 dark:ring-slate-800 hover:ring-emerald-400 dark:hover:ring-emerald-500 hover:shadow-sm transition bg-white dark:bg-slate-900"
               @click="addItem(m)"
             >
               <div class="flex items-start justify-between gap-3">
                 <div class="min-w-0">
                   <div class="font-medium truncate">{{ m.name }}</div>
-                  <div class="text-xs text-zinc-500 mt-0.5 line-clamp-1">{{ m.description }}</div>
+                  <div class="text-xs text-stone-500 mt-0.5 line-clamp-1">{{ m.description }}</div>
                   <div v-if="m.allergens.length" class="mt-1 flex flex-wrap gap-1">
                     <UBadge v-for="a in m.allergens" :key="a" color="rose">{{ a }}</UBadge>
                   </div>
                 </div>
-                <div class="text-sm font-semibold text-violet-600 dark:text-violet-400 shrink-0">
+                <div class="text-sm font-semibold text-emerald-600 dark:text-emerald-400 shrink-0">
                   £{{ m.base_price.toFixed(2) }}
                 </div>
               </div>
@@ -269,12 +269,12 @@ function describeDecorator(d: DecoratorSpec): string {
           <template #header>
             <div class="flex items-center justify-between">
               <h2 class="font-semibold">Your order</h2>
-              <UBadge color="violet">{{ draft.items.length }} line(s)</UBadge>
+              <UBadge color="emerald">{{ draft.items.length }} line(s)</UBadge>
             </div>
           </template>
 
-          <div v-if="draft.items.length === 0" class="py-10 text-center text-sm text-zinc-500">
-            <SparklesIcon class="w-8 h-8 mx-auto mb-2 text-zinc-400" />
+          <div v-if="draft.items.length === 0" class="py-10 text-center text-sm text-stone-500">
+            <SparklesIcon class="w-8 h-8 mx-auto mb-2 text-slate-400" />
             Tap an item to add it.
           </div>
 
@@ -282,12 +282,12 @@ function describeDecorator(d: DecoratorSpec): string {
             <div
               v-for="(line, idx) in draft.items"
               :key="idx"
-              class="p-3 rounded-lg bg-zinc-50 dark:bg-zinc-900 ring-1 ring-zinc-100 dark:ring-zinc-800"
+              class="p-3 rounded-lg bg-stone-50 dark:bg-slate-900 ring-1 ring-stone-100 dark:ring-slate-800"
             >
               <div class="flex items-start justify-between gap-2">
                 <div class="min-w-0">
                   <div class="font-medium truncate">{{ line.name }}</div>
-                  <div class="text-xs text-zinc-500">£{{ line.base_price.toFixed(2) }} each</div>
+                  <div class="text-xs text-stone-500">£{{ line.base_price.toFixed(2) }} each</div>
                 </div>
                 <button class="text-rose-500 hover:text-rose-600" @click="removeLine(idx)">
                   <TrashIcon class="w-4 h-4" />
@@ -309,10 +309,10 @@ function describeDecorator(d: DecoratorSpec): string {
                 <span
                   v-for="(d, di) in line.decorators"
                   :key="di"
-                  class="badge bg-violet-100 text-violet-700 dark:bg-violet-500/15 dark:text-violet-300"
+                  class="badge bg-emerald-100 text-emerald-700 dark:bg-emerald-500/15 dark:text-emerald-300"
                 >
                   {{ describeDecorator(d) }}
-                  <button class="ml-1 text-violet-500" @click="removeDecorator(idx, di)">×</button>
+                  <button class="ml-1 text-emerald-500" @click="removeDecorator(idx, di)">×</button>
                 </span>
               </div>
             </div>
@@ -324,10 +324,10 @@ function describeDecorator(d: DecoratorSpec): string {
                 <UTextarea v-model="draft.notes" :rows="2" placeholder="Allergies, prefs, etc." />
               </UFormGroup>
               <div class="flex items-center justify-between text-sm">
-                <span class="text-zinc-500">Pre-pricing subtotal</span>
+                <span class="text-stone-500">Pre-pricing subtotal</span>
                 <span class="font-semibold text-lg">£{{ subtotal.toFixed(2) }}</span>
               </div>
-              <p class="text-xs text-zinc-400">
+              <p class="text-xs text-slate-400">
                 Final total may differ — backend applies the current pricing strategy (happy hour,
                 loyalty, group, weekend, standard).
               </p>

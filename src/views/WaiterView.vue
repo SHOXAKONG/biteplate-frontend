@@ -49,10 +49,10 @@ function legalActions(status: string): string[] {
   }
 }
 
-const statusColor: Record<string, "emerald" | "amber" | "violet" | "rose" | "sky" | "gray"> = {
+const statusColor: Record<string, "emerald" | "amber" | "emerald" | "rose" | "sky" | "gray"> = {
   free: "emerald",
   reserved: "amber",
-  occupied: "violet",
+  occupied: "emerald",
   awaiting_bill: "rose",
   cleared: "sky",
 };
@@ -62,17 +62,17 @@ const statusColor: Record<string, "emerald" | "amber" | "violet" | "rose" | "sky
   <DashboardLayout>
     <div class="mb-6">
       <h1 class="text-3xl font-semibold tracking-tight">Floor plan</h1>
-      <p class="text-zinc-500 mt-1">Tap a table to change its state.</p>
+      <p class="text-stone-500 mt-1">Tap a table to change its state.</p>
     </div>
 
     <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
       <UCard v-for="t in tables" :key="t.id">
         <div class="flex items-center justify-between mb-2">
-          <div class="text-xs text-zinc-500 uppercase tracking-wider">Table</div>
+          <div class="text-xs text-stone-500 uppercase tracking-wider">Table</div>
           <UBadge :color="statusColor[t.status] || 'gray'">{{ t.status.replace("_", " ") }}</UBadge>
         </div>
         <div class="text-3xl font-semibold">#{{ t.number }}</div>
-        <div class="mt-1 text-sm text-zinc-500 flex items-center gap-1">
+        <div class="mt-1 text-sm text-stone-500 flex items-center gap-1">
           <UsersIcon class="w-4 h-4" /> {{ t.seats }} seats
         </div>
         <div class="mt-4 flex flex-wrap gap-2">
@@ -91,7 +91,7 @@ const statusColor: Record<string, "emerald" | "amber" | "violet" | "rose" | "sky
           >
             <PlusIcon class="w-3 h-3" /> Order
           </button>
-          <div v-if="legalActions(t.status).length === 0" class="text-xs text-zinc-400">
+          <div v-if="legalActions(t.status).length === 0" class="text-xs text-slate-400">
             No actions
           </div>
         </div>

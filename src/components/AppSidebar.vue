@@ -60,9 +60,9 @@ const visible = computed(() => items.filter((i) => auth.hasRole(...i.roles)));
 
 <template>
   <aside
-    class="hidden lg:flex w-64 flex-col border-r border-zinc-200 dark:border-zinc-800 bg-white/70 dark:bg-zinc-950/70 glass"
+    class="hidden lg:flex w-64 flex-col border-r border-stone-200 dark:border-slate-800 bg-white/70 dark:bg-slate-950/70 glass"
   >
-    <div class="px-5 py-5 border-b border-zinc-200/70 dark:border-zinc-800/70">
+    <div class="px-5 py-5 border-b border-stone-200/70 dark:border-slate-800/70">
       <BrandLogo size="md" tagline />
     </div>
 
@@ -71,35 +71,35 @@ const visible = computed(() => items.filter((i) => auth.hasRole(...i.roles)));
         v-for="item in visible"
         :key="item.to"
         :to="item.to"
-        class="flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium text-zinc-600 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800/60 transition"
-        active-class="!bg-gradient-to-r from-violet-500/10 to-fuchsia-500/10 !text-violet-700 dark:!text-violet-300 ring-1 ring-violet-500/20"
+        class="flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium text-slate-600 dark:text-stone-300 hover:bg-stone-100 dark:hover:bg-slate-800/60 transition"
+        active-class="!bg-gradient-to-r from-emerald-500/10 to-amber-500/10 !text-emerald-700 dark:!text-emerald-300 ring-1 ring-emerald-500/20"
       >
         <component :is="item.icon" class="w-5 h-5 shrink-0" />
         {{ item.label }}
       </RouterLink>
 
-      <div class="my-3 border-t border-zinc-200/70 dark:border-zinc-800/70" />
+      <div class="my-3 border-t border-stone-200/70 dark:border-slate-800/70" />
 
       <RouterLink
         :to="profileItem.to"
-        class="flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium text-zinc-600 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800/60 transition"
-        active-class="!bg-gradient-to-r from-violet-500/10 to-fuchsia-500/10 !text-violet-700 dark:!text-violet-300 ring-1 ring-violet-500/20"
+        class="flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium text-slate-600 dark:text-stone-300 hover:bg-stone-100 dark:hover:bg-slate-800/60 transition"
+        active-class="!bg-gradient-to-r from-emerald-500/10 to-amber-500/10 !text-emerald-700 dark:!text-emerald-300 ring-1 ring-emerald-500/20"
       >
         <component :is="profileItem.icon" class="w-5 h-5 shrink-0" />
         {{ profileItem.label }}
       </RouterLink>
     </nav>
 
-    <div class="p-3 border-t border-zinc-200/70 dark:border-zinc-800/70">
-      <div class="flex items-center gap-3 px-3 py-2 rounded-lg bg-zinc-50 dark:bg-zinc-900">
+    <div class="p-3 border-t border-stone-200/70 dark:border-slate-800/70">
+      <div class="flex items-center gap-3 px-3 py-2 rounded-lg bg-stone-50 dark:bg-slate-900">
         <div
-          class="w-8 h-8 rounded-full bg-gradient-to-br from-violet-500 to-fuchsia-500 text-white flex items-center justify-center text-sm font-semibold"
+          class="w-8 h-8 rounded-full bg-gradient-to-br from-emerald-500 to-amber-500 text-white flex items-center justify-center text-sm font-semibold"
         >
           {{ (auth.user?.username || "?").charAt(0).toUpperCase() }}
         </div>
         <div class="min-w-0 flex-1">
           <div class="text-sm font-medium truncate">{{ auth.user?.username }}</div>
-          <div class="text-xs text-zinc-500 truncate">{{ auth.user?.email }}</div>
+          <div class="text-xs text-stone-500 truncate">{{ auth.user?.email }}</div>
         </div>
       </div>
     </div>

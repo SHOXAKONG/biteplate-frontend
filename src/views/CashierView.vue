@@ -33,23 +33,23 @@ async function generate(orderId: string) {
   <DashboardLayout>
     <div class="mb-6">
       <h1 class="text-3xl font-semibold tracking-tight">Cashier</h1>
-      <p class="text-zinc-500 mt-1">Generate bills, split among guests.</p>
+      <p class="text-stone-500 mt-1">Generate bills, split among guests.</p>
     </div>
 
     <div class="grid lg:grid-cols-2 gap-4">
       <UCard>
         <template #header><h2 class="font-semibold">Open orders</h2></template>
-        <div v-if="orders.length === 0" class="py-6 text-center text-sm text-zinc-500">
+        <div v-if="orders.length === 0" class="py-6 text-center text-sm text-stone-500">
           No open orders
         </div>
         <div class="space-y-2">
           <div
             v-for="o in orders"
             :key="o.id"
-            class="p-3 rounded-lg bg-zinc-50 dark:bg-zinc-900 flex items-center gap-3"
+            class="p-3 rounded-lg bg-stone-50 dark:bg-slate-900 flex items-center gap-3"
           >
             <div class="flex-1 min-w-0">
-              <div class="font-mono text-xs text-zinc-500 truncate">{{ o.id }}</div>
+              <div class="font-mono text-xs text-stone-500 truncate">{{ o.id }}</div>
               <div class="text-sm font-medium">
                 £{{ o.total.toFixed(2) }} · {{ o.pricing_strategy }}
               </div>
@@ -66,26 +66,26 @@ async function generate(orderId: string) {
         <template #header><h2 class="font-semibold">Latest bill</h2></template>
         <div class="space-y-2 text-sm">
           <div class="flex justify-between">
-            <span class="text-zinc-500">Subtotal</span>
+            <span class="text-stone-500">Subtotal</span>
             <span>£{{ generated.subtotal.toFixed(2) }}</span>
           </div>
           <div class="flex justify-between">
-            <span class="text-zinc-500">VAT</span>
+            <span class="text-stone-500">VAT</span>
             <span>£{{ generated.tax.toFixed(2) }}</span>
           </div>
-          <div class="flex justify-between text-base font-semibold pt-2 border-t border-zinc-200 dark:border-zinc-800">
+          <div class="flex justify-between text-base font-semibold pt-2 border-t border-stone-200 dark:border-slate-800">
             <span>Total</span>
             <span>£{{ generated.total.toFixed(2) }}</span>
           </div>
           <div class="pt-2">
-            <div class="text-xs text-zinc-500 uppercase tracking-wider mb-2">Splits</div>
+            <div class="text-xs text-stone-500 uppercase tracking-wider mb-2">Splits</div>
             <div class="grid grid-cols-2 gap-2">
               <div
                 v-for="s in generated.splits"
                 :key="s.index"
-                class="px-3 py-2 rounded bg-zinc-50 dark:bg-zinc-900 flex justify-between"
+                class="px-3 py-2 rounded bg-stone-50 dark:bg-slate-900 flex justify-between"
               >
-                <span class="text-zinc-500">Guest {{ s.index + 1 }}</span>
+                <span class="text-stone-500">Guest {{ s.index + 1 }}</span>
                 <span class="font-medium">£{{ s.amount.toFixed(2) }}</span>
               </div>
             </div>

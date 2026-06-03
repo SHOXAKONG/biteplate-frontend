@@ -53,11 +53,11 @@ async function onSubmit() {
         <RouterLink to="/"><BrandLogo size="lg" /></RouterLink>
       </div>
 
-      <UCard class="glass shadow-2xl shadow-violet-500/10">
+      <UCard class="glass shadow-2xl shadow-emerald-500/10">
         <template #header>
           <div>
             <h1 class="text-2xl font-semibold tracking-tight">Create your account</h1>
-            <p class="text-sm text-zinc-500 mt-1">You'll join as a customer.</p>
+            <p class="text-sm text-stone-500 mt-1">You'll join as a customer.</p>
           </div>
         </template>
 
@@ -83,9 +83,9 @@ async function onSubmit() {
         </form>
 
         <template #footer>
-          <div class="text-sm text-zinc-500 text-center">
+          <div class="text-sm text-stone-500 text-center">
             Already have an account?
-            <RouterLink to="/login" class="text-violet-600 dark:text-violet-400 font-medium">
+            <RouterLink to="/login" class="text-emerald-600 dark:text-emerald-400 font-medium">
               Sign in
             </RouterLink>
           </div>

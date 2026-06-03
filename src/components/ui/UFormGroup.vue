@@ -4,8 +4,8 @@ defineProps<{ label: string; hint?: string }>();
 
 <template>
   <label class="block space-y-1.5">
-    <span class="block text-sm font-medium text-zinc-700 dark:text-zinc-300">{{ label }}</span>
+    <span class="block text-sm font-medium text-slate-700 dark:text-stone-300">{{ label }}</span>
     <slot />
-    <span v-if="hint" class="block text-xs text-zinc-500">{{ hint }}</span>
+    <span v-if="hint" class="block text-xs text-stone-500">{{ hint }}</span>
   </label>
 </template>

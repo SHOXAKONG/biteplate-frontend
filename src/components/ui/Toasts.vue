@@ -10,7 +10,7 @@ const colorMap: Record<string, string> = {
   emerald: "from-emerald-500 to-teal-500",
   rose: "from-rose-500 to-pink-500",
   amber: "from-amber-500 to-orange-500",
-  violet: "from-violet-500 to-fuchsia-500",
+  violet: "from-emerald-500 to-amber-500",
   sky: "from-sky-500 to-blue-500",
 };
 
@@ -28,7 +28,7 @@ function iconFor(icon?: string) {
       <div
         v-for="t in list"
         :key="t.id"
-        class="card overflow-hidden flex items-start gap-3 p-3 shadow-xl shadow-zinc-900/10 animate-slide-up"
+        class="card overflow-hidden flex items-start gap-3 p-3 shadow-xl shadow-slate-900/10 animate-slide-up"
       >
         <div
           class="w-9 h-9 rounded-lg flex items-center justify-center text-white bg-gradient-to-br shrink-0"
@@ -38,11 +38,11 @@ function iconFor(icon?: string) {
         </div>
         <div class="flex-1 min-w-0">
           <div class="text-sm font-semibold">{{ t.title }}</div>
-          <div v-if="t.description" class="text-xs text-zinc-500 mt-0.5">
+          <div v-if="t.description" class="text-xs text-stone-500 mt-0.5">
             {{ t.description }}
           </div>
         </div>
-        <button class="text-zinc-400 hover:text-zinc-600" @click="remove(t.id)">
+        <button class="text-slate-400 hover:text-slate-600" @click="remove(t.id)">
           <XCircleIcon class="w-4 h-4" />
         </button>
       </div>

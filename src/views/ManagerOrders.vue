@@ -30,9 +30,9 @@ const totals = computed(() => ({
     : 0,
 }));
 
-const statusColor: Record<string, "emerald" | "amber" | "violet" | "rose" | "gray"> = {
+const statusColor: Record<string, "emerald" | "amber" | "emerald" | "rose" | "gray"> = {
   placed: "amber",
-  confirmed: "violet",
+  confirmed: "emerald",
   paid: "emerald",
   cancelled: "rose",
 };
@@ -54,7 +54,7 @@ async function cancel(o: Order) {
     <div class="flex items-center justify-between mb-6">
       <div>
         <h1 class="text-3xl font-semibold tracking-tight">All orders</h1>
-        <p class="text-zinc-500 mt-1">Restaurant-wide order activity.</p>
+        <p class="text-stone-500 mt-1">Restaurant-wide order activity.</p>
       </div>
       <div class="flex gap-2">
         <button class="btn-sm" :class="filter === '' ? 'btn-soft' : 'btn-ghost'" @click="filter = ''">All</button>
@@ -67,21 +67,21 @@ async function cancel(o: Order) {
 
     <div class="grid sm:grid-cols-3 gap-4 mb-8">
       <UCard>
-        <div class="text-xs uppercase tracking-wider text-zinc-500">Orders</div>
+        <div class="text-xs uppercase tracking-wider text-stone-500">Orders</div>
         <div class="text-3xl font-semibold mt-1">{{ totals.count }}</div>
       </UCard>
       <UCard>
-        <div class="text-xs uppercase tracking-wider text-zinc-500">Revenue</div>
+        <div class="text-xs uppercase tracking-wider text-stone-500">Revenue</div>
         <div class="text-3xl font-semibold mt-1">£{{ totals.revenue.toFixed(2) }}</div>
       </UCard>
       <UCard>
-        <div class="text-xs uppercase tracking-wider text-zinc-500">Avg / order</div>
+        <div class="text-xs uppercase tracking-wider text-stone-500">Avg / order</div>
         <div class="text-3xl font-semibold mt-1">£{{ totals.avg.toFixed(2) }}</div>
       </UCard>
     </div>
 
-    <div v-if="filtered.length === 0" class="py-16 text-center text-zinc-500">
-      <ClipboardDocumentListIcon class="w-12 h-12 mx-auto mb-2 text-zinc-400" />
+    <div v-if="filtered.length === 0" class="py-16 text-center text-stone-500">
+      <ClipboardDocumentListIcon class="w-12 h-12 mx-auto mb-2 text-slate-400" />
       No orders.
     </div>
 
@@ -89,9 +89,9 @@ async function cancel(o: Order) {
       <UCard v-for="o in filtered" :key="o.id">
         <div class="flex items-start justify-between gap-3 mb-3">
           <div class="min-w-0">
-            <div class="text-xs text-zinc-500 font-mono truncate">{{ o.id }}</div>
+            <div class="text-xs text-stone-500 font-mono truncate">{{ o.id }}</div>
             <div class="text-lg font-semibold mt-1">£{{ o.total.toFixed(2) }}</div>
-            <div class="text-xs text-zinc-500">
+            <div class="text-xs text-stone-500">
               {{ o.items.length }} item(s) ·
               <span class="capitalize">{{ o.pricing_strategy.replace("_", " ") }}</span>
             </div>
@@ -105,17 +105,17 @@ async function cancel(o: Order) {
             :key="i.id"
             class="flex items-center justify-between text-sm"
           >
-            <span class="text-zinc-700 dark:text-zinc-300 truncate">
+            <span class="text-slate-700 dark:text-stone-300 truncate">
               {{ i.quantity }}× {{ i.menu_item_name }}
             </span>
-            <span class="text-zinc-500">£{{ (i.unit_price * i.quantity).toFixed(2) }}</span>
+            <span class="text-stone-500">£{{ (i.unit_price * i.quantity).toFixed(2) }}</span>
           </div>
-          <div v-if="o.items.length > 3" class="text-xs text-zinc-400">
+          <div v-if="o.items.length > 3" class="text-xs text-slate-400">
             + {{ o.items.length - 3 }} more
           </div>
         </div>
 
-        <div v-if="o.status === 'placed' || o.status === 'confirmed'" class="flex justify-end pt-2 border-t border-zinc-100 dark:border-zinc-800">
+        <div v-if="o.status === 'placed' || o.status === 'confirmed'" class="flex justify-end pt-2 border-t border-stone-100 dark:border-slate-800">
           <UButton size="sm" variant="soft-rose" @click="cancel(o)">Cancel</UButton>
         </div>
       </UCard>

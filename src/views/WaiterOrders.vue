@@ -22,9 +22,9 @@ const filtered = computed(() =>
   filter.value ? orders.value.filter((o) => o.status === filter.value) : orders.value,
 );
 
-const statusColor: Record<string, "emerald" | "amber" | "violet" | "rose" | "sky" | "gray"> = {
+const statusColor: Record<string, "emerald" | "amber" | "emerald" | "rose" | "sky" | "gray"> = {
   placed: "amber",
-  confirmed: "violet",
+  confirmed: "emerald",
   paid: "emerald",
   cancelled: "rose",
 };
@@ -46,7 +46,7 @@ async function cancel(o: Order) {
     <div class="flex items-center justify-between mb-6">
       <div>
         <h1 class="text-3xl font-semibold tracking-tight">My orders</h1>
-        <p class="text-zinc-500 mt-1">Orders you've placed.</p>
+        <p class="text-stone-500 mt-1">Orders you've placed.</p>
       </div>
       <div class="flex gap-2">
         <button class="btn-sm" :class="filter === '' ? 'btn-soft' : 'btn-ghost'" @click="filter = ''">All</button>
@@ -57,8 +57,8 @@ async function cancel(o: Order) {
       </div>
     </div>
 
-    <div v-if="filtered.length === 0" class="py-20 text-center text-zinc-500">
-      <ClipboardDocumentListIcon class="w-12 h-12 mx-auto mb-3 text-zinc-400" />
+    <div v-if="filtered.length === 0" class="py-20 text-center text-stone-500">
+      <ClipboardDocumentListIcon class="w-12 h-12 mx-auto mb-3 text-slate-400" />
       No orders to show.
     </div>
 
@@ -66,9 +66,9 @@ async function cancel(o: Order) {
       <UCard v-for="o in filtered" :key="o.id">
         <div class="flex items-start justify-between gap-3">
           <div class="min-w-0">
-            <div class="text-xs text-zinc-500 font-mono truncate">{{ o.id }}</div>
+            <div class="text-xs text-stone-500 font-mono truncate">{{ o.id }}</div>
             <div class="text-lg font-semibold mt-1">£{{ o.total.toFixed(2) }}</div>
-            <div class="text-xs text-zinc-500">
+            <div class="text-xs text-stone-500">
               Pricing: <span class="capitalize">{{ o.pricing_strategy.replace("_", " ") }}</span>
             </div>
           </div>
@@ -81,14 +81,14 @@ async function cancel(o: Order) {
             :key="i.id"
             class="flex items-center justify-between text-sm"
           >
-            <span class="text-zinc-700 dark:text-zinc-300">
+            <span class="text-slate-700 dark:text-stone-300">
               {{ i.quantity }}× {{ i.menu_item_name }}
             </span>
-            <span class="text-zinc-500">£{{ (i.unit_price * i.quantity).toFixed(2) }}</span>
+            <span class="text-stone-500">£{{ (i.unit_price * i.quantity).toFixed(2) }}</span>
           </div>
         </div>
 
-        <div v-if="o.notes" class="mt-3 text-xs text-zinc-500 italic">"{{ o.notes }}"</div>
+        <div v-if="o.notes" class="mt-3 text-xs text-stone-500 italic">"{{ o.notes }}"</div>
 
         <div v-if="o.status === 'placed' || o.status === 'confirmed'" class="mt-3 flex justify-end">
           <UButton variant="soft-rose" size="sm" @click="cancel(o)">Cancel</UButton>

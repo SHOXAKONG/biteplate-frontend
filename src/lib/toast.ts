@@ -1,6 +1,6 @@
 import { reactive } from "vue";
 
-export type ToastColor = "violet" | "emerald" | "amber" | "rose" | "sky";
+export type ToastColor = "emerald" | "emerald" | "amber" | "rose" | "sky";
 
 export interface Toast {
   id: number;

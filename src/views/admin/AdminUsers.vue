@@ -132,7 +132,7 @@ async function changeFilter(v: string) {
     <div class="flex items-center justify-between mb-6">
       <div>
         <h1 class="text-3xl font-semibold tracking-tight">Staff</h1>
-        <p class="text-zinc-500 mt-1">Everyone in the Keycloak realm.</p>
+        <p class="text-stone-500 mt-1">Everyone in the Keycloak realm.</p>
       </div>
       <div class="flex items-center gap-3">
         <div class="w-44">
@@ -144,15 +144,15 @@ async function changeFilter(v: string) {
       </div>
     </div>
 
-    <div v-if="users.length === 0" class="py-16 text-center text-zinc-500">
-      <UserPlusIcon class="w-12 h-12 mx-auto mb-3 text-zinc-400" />
+    <div v-if="users.length === 0" class="py-16 text-center text-stone-500">
+      <UserPlusIcon class="w-12 h-12 mx-auto mb-3 text-slate-400" />
       No users in this filter.
     </div>
 
     <div v-for="(group, role) in grouped" :key="role" class="mb-6">
       <div class="flex items-center gap-2 mb-3">
         <RoleBadge :role="String(role)" />
-        <span class="text-xs text-zinc-500">{{ group.length }} user(s)</span>
+        <span class="text-xs text-stone-500">{{ group.length }} user(s)</span>
       </div>
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
         <UCard v-for="u in group" :key="u.id">
@@ -161,16 +161,16 @@ async function changeFilter(v: string) {
               class="w-10 h-10 rounded-full flex items-center justify-center text-white font-semibold bg-gradient-to-br"
               :class="
                 u.enabled
-                  ? 'from-violet-500 to-fuchsia-500'
-                  : 'from-zinc-400 to-zinc-500'
+                  ? 'from-emerald-500 to-amber-500'
+                  : 'from-slate-400 to-stone-500'
               "
             >
               {{ u.username.charAt(0).toUpperCase() }}
             </div>
             <div class="flex-1 min-w-0">
               <div class="font-medium truncate">{{ u.username }}</div>
-              <div class="text-xs text-zinc-500 truncate">{{ u.email || "—" }}</div>
-              <div class="text-xs text-zinc-500 truncate">
+              <div class="text-xs text-stone-500 truncate">{{ u.email || "—" }}</div>
+              <div class="text-xs text-stone-500 truncate">
                 {{ [u.first_name, u.last_name].filter(Boolean).join(" ") || "—" }}
               </div>
             </div>
@@ -178,7 +178,7 @@ async function changeFilter(v: string) {
               {{ u.enabled ? "active" : "disabled" }}
             </UBadge>
           </div>
-          <div class="mt-3 flex justify-end gap-2 pt-3 border-t border-zinc-100 dark:border-zinc-800">
+          <div class="mt-3 flex justify-end gap-2 pt-3 border-t border-stone-100 dark:border-slate-800">
             <UButton size="sm" variant="ghost" @click="openReset(u)">
               <KeyIcon class="w-3 h-3" /> Reset pw
             </UButton>

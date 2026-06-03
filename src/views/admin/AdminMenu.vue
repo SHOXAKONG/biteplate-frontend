@@ -112,7 +112,7 @@ async function deleteItem(m: MenuItem) {
     <div class="flex items-center justify-between mb-6">
       <div>
         <h1 class="text-3xl font-semibold tracking-tight">Menu</h1>
-        <p class="text-zinc-500 mt-1">All dishes and combos for this location.</p>
+        <p class="text-stone-500 mt-1">All dishes and combos for this location.</p>
       </div>
       <UButton @click="showCreate = true">
         <PlusIcon class="w-4 h-4" /> New item
@@ -121,8 +121,8 @@ async function deleteItem(m: MenuItem) {
 
     <UCard no-padding>
       <table class="w-full">
-        <thead class="border-b border-zinc-200/70 dark:border-zinc-800/70">
-          <tr class="text-left text-xs uppercase tracking-wider text-zinc-500">
+        <thead class="border-b border-stone-200/70 dark:border-slate-800/70">
+          <tr class="text-left text-xs uppercase tracking-wider text-stone-500">
             <th class="px-5 py-3">Name</th>
             <th class="px-5 py-3">Category</th>
             <th class="px-5 py-3">Price</th>
@@ -133,20 +133,20 @@ async function deleteItem(m: MenuItem) {
         </thead>
         <tbody>
           <tr v-if="loading">
-            <td colspan="6" class="px-5 py-10 text-center text-sm text-zinc-500">Loading…</td>
+            <td colspan="6" class="px-5 py-10 text-center text-sm text-stone-500">Loading…</td>
           </tr>
           <tr v-else-if="items.length === 0">
-            <td colspan="6" class="px-5 py-10 text-center text-sm text-zinc-500">
+            <td colspan="6" class="px-5 py-10 text-center text-sm text-stone-500">
               No items yet. Click <span class="font-semibold">New item</span> to add one.
             </td>
           </tr>
           <tr
             v-for="m in items"
             :key="m.id"
-            class="border-t border-zinc-200/40 dark:border-zinc-800/40 hover:bg-zinc-50 dark:hover:bg-zinc-900/40"
+            class="border-t border-stone-200/40 dark:border-slate-800/40 hover:bg-stone-50 dark:hover:bg-slate-900/40"
           >
             <td class="px-5 py-3 font-medium">{{ m.name }}</td>
-            <td class="px-5 py-3 text-sm text-zinc-500 capitalize">{{ m.category }}</td>
+            <td class="px-5 py-3 text-sm text-stone-500 capitalize">{{ m.category }}</td>
             <td class="px-5 py-3">£{{ m.base_price.toFixed(2) }}</td>
             <td class="px-5 py-3">
               <UBadge :color="m.available ? 'emerald' : 'gray'">
@@ -188,7 +188,7 @@ async function deleteItem(m: MenuItem) {
           </UFormGroup>
         </div>
         <div class="flex items-center justify-between">
-          <span class="text-sm text-zinc-700 dark:text-zinc-300">Is a combo?</span>
+          <span class="text-sm text-slate-700 dark:text-stone-300">Is a combo?</span>
           <UToggle v-model="createForm.is_combo as boolean" />
         </div>
         <div class="flex justify-end gap-2 pt-2">
@@ -211,11 +211,11 @@ async function deleteItem(m: MenuItem) {
           </UFormGroup>
         </div>
         <div class="flex items-center justify-between">
-          <span class="text-sm text-zinc-700 dark:text-zinc-300">Available</span>
+          <span class="text-sm text-slate-700 dark:text-stone-300">Available</span>
           <UToggle v-model="editForm.available" />
         </div>
         <div class="flex items-center justify-between">
-          <span class="text-sm text-zinc-700 dark:text-zinc-300">Is a combo?</span>
+          <span class="text-sm text-slate-700 dark:text-stone-300">Is a combo?</span>
           <UToggle v-model="editForm.is_combo" />
         </div>
         <div class="flex justify-end gap-2 pt-2">

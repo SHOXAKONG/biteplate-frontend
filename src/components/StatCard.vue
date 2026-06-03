@@ -9,15 +9,15 @@ const props = withDefaults(
     icon?: Component;
     trend?: string;
     trendUp?: boolean;
-    accent?: "violet" | "amber" | "emerald" | "sky" | "rose";
+    accent?: "emerald" | "amber" | "emerald" | "sky" | "rose";
   }>(),
-  { accent: "violet" },
+  { accent: "emerald" },
 );
 
 const accentGradient = computed(
   () =>
     ({
-      violet: "from-violet-500 to-fuchsia-500",
+      violet: "from-emerald-500 to-amber-500",
       amber: "from-amber-400 to-orange-500",
       emerald: "from-emerald-400 to-teal-500",
       sky: "from-sky-400 to-blue-500",
@@ -27,7 +27,7 @@ const accentGradient = computed(
 const blurColor = computed(
   () =>
     ({
-      violet: "bg-violet-400",
+      violet: "bg-emerald-400",
       amber: "bg-amber-400",
       emerald: "bg-emerald-400",
       sky: "bg-sky-400",
@@ -45,7 +45,7 @@ const blurColor = computed(
     />
     <div class="card-body relative flex items-start justify-between">
       <div>
-        <div class="text-xs uppercase tracking-wider text-zinc-500 dark:text-zinc-400 font-medium">
+        <div class="text-xs uppercase tracking-wider text-stone-500 dark:text-slate-400 font-medium">
           {{ label }}
         </div>
         <div class="mt-2 text-3xl font-semibold tracking-tight">{{ value }}</div>

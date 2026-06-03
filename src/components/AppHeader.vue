@@ -28,11 +28,11 @@ function toggleTheme() {
 
 <template>
   <header
-    class="sticky top-0 z-30 h-16 px-4 sm:px-6 lg:px-8 flex items-center justify-between border-b border-zinc-200/70 dark:border-zinc-800/70 bg-white/70 dark:bg-zinc-950/70 glass"
+    class="sticky top-0 z-30 h-16 px-4 sm:px-6 lg:px-8 flex items-center justify-between border-b border-stone-200/70 dark:border-slate-800/70 bg-white/70 dark:bg-slate-950/70 glass"
   >
     <div class="flex items-center gap-3">
       <button
-        class="lg:hidden p-2 -ml-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800"
+        class="lg:hidden p-2 -ml-2 rounded-lg hover:bg-stone-100 dark:hover:bg-slate-800"
         @click="$emit('toggle-sidebar')"
       >
         <Bars3Icon class="w-5 h-5" />
@@ -44,14 +44,14 @@ function toggleTheme() {
 
     <div class="flex items-center gap-1">
       <button
-        class="p-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-600 dark:text-zinc-300"
+        class="p-2 rounded-lg hover:bg-stone-100 dark:hover:bg-slate-800 text-slate-600 dark:text-stone-300"
         @click="toggleTheme"
       >
         <SunIcon v-if="mode === 'dark'" class="w-5 h-5" />
         <MoonIcon v-else class="w-5 h-5" />
       </button>
       <button
-        class="p-2 rounded-lg hover:bg-rose-100 dark:hover:bg-rose-500/10 text-zinc-600 dark:text-zinc-300 hover:text-rose-600 dark:hover:text-rose-300"
+        class="p-2 rounded-lg hover:bg-rose-100 dark:hover:bg-rose-500/10 text-slate-600 dark:text-stone-300 hover:text-rose-600 dark:hover:text-rose-300"
         @click="logout"
         title="Sign out"
       >

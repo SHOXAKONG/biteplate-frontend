@@ -23,7 +23,7 @@ defineEmits<{ close: [] }>();
         leave-from="opacity-100"
         leave-to="opacity-0"
       >
-        <div class="fixed inset-0 bg-zinc-950/60 backdrop-blur-sm" />
+        <div class="fixed inset-0 bg-slate-950/60 backdrop-blur-sm" />
       </TransitionChild>
 
       <div class="fixed inset-0 overflow-y-auto">
@@ -38,11 +38,11 @@ defineEmits<{ close: [] }>();
             leave-to="opacity-0 translate-y-2 scale-95"
           >
             <DialogPanel
-              class="w-full max-w-lg transform overflow-hidden rounded-2xl bg-white dark:bg-zinc-900 ring-1 ring-zinc-200 dark:ring-zinc-800 shadow-2xl"
+              class="w-full max-w-lg transform overflow-hidden rounded-2xl bg-white dark:bg-slate-900 ring-1 ring-stone-200 dark:ring-slate-800 shadow-2xl"
             >
               <DialogTitle
                 v-if="title"
-                class="px-5 py-4 border-b border-zinc-200/70 dark:border-zinc-800/70 text-lg font-semibold"
+                class="px-5 py-4 border-b border-stone-200/70 dark:border-slate-800/70 text-lg font-semibold"
               >
                 {{ title }}
               </DialogTitle>

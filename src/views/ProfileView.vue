@@ -57,35 +57,35 @@ async function onChangePassword() {
   <DashboardLayout>
     <div class="mb-6">
       <h1 class="text-3xl font-semibold tracking-tight">Profile</h1>
-      <p class="text-zinc-500 mt-1">Your account.</p>
+      <p class="text-stone-500 mt-1">Your account.</p>
     </div>
 
     <div class="grid lg:grid-cols-3 gap-4">
       <UCard class="lg:col-span-1">
         <div class="flex flex-col items-center text-center py-4">
           <div
-            class="w-20 h-20 rounded-full bg-gradient-to-br from-violet-500 to-fuchsia-500 text-white flex items-center justify-center text-3xl font-semibold shadow-lg shadow-violet-500/30"
+            class="w-20 h-20 rounded-full bg-gradient-to-br from-emerald-500 to-amber-500 text-white flex items-center justify-center text-3xl font-semibold shadow-lg shadow-emerald-500/30"
           >
             {{ (auth.user?.username || "?").charAt(0).toUpperCase() }}
           </div>
           <div class="mt-4 font-semibold text-lg">{{ auth.user?.username }}</div>
-          <div class="text-sm text-zinc-500">{{ auth.user?.email }}</div>
+          <div class="text-sm text-stone-500">{{ auth.user?.email }}</div>
           <div class="mt-3 flex flex-wrap gap-1 justify-center">
             <RoleBadge v-for="r in auth.roles" :key="r" :role="r" />
           </div>
         </div>
 
-        <div class="pt-4 mt-4 border-t border-zinc-200/70 dark:border-zinc-800/70 space-y-2 text-sm">
+        <div class="pt-4 mt-4 border-t border-stone-200/70 dark:border-slate-800/70 space-y-2 text-sm">
           <div class="flex justify-between">
-            <span class="text-zinc-500">User ID</span>
+            <span class="text-stone-500">User ID</span>
             <span class="font-mono text-xs truncate ml-2">{{ auth.user?.sub.slice(0, 8) }}…</span>
           </div>
           <div class="flex justify-between">
-            <span class="text-zinc-500">Primary role</span>
+            <span class="text-stone-500">Primary role</span>
             <span class="capitalize">{{ auth.primaryRole?.replace("_", " ") }}</span>
           </div>
           <div class="flex justify-between">
-            <span class="text-zinc-500">Lands on</span>
+            <span class="text-stone-500">Lands on</span>
             <span class="font-mono text-xs">{{ auth.homeRoute }}</span>
           </div>
         </div>
@@ -94,7 +94,7 @@ async function onChangePassword() {
       <UCard class="lg:col-span-2">
         <template #header>
           <div class="flex items-center gap-2">
-            <KeyIcon class="w-5 h-5 text-violet-500" />
+            <KeyIcon class="w-5 h-5 text-emerald-500" />
             <h2 class="font-semibold">Change password</h2>
           </div>
         </template>
@@ -117,7 +117,7 @@ async function onChangePassword() {
         </form>
 
         <template #footer>
-          <div class="text-xs text-zinc-500 flex items-center gap-2">
+          <div class="text-xs text-stone-500 flex items-center gap-2">
             <UserCircleIcon class="w-4 h-4" />
             Your password is verified by Keycloak via a password-grant login. Profile fields (name,
             email) are managed in the Keycloak admin console.

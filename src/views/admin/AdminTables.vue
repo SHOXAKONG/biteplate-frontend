@@ -67,10 +67,10 @@ async function deleteTable(t: Table) {
   }
 }
 
-const statusColor: Record<string, "emerald" | "amber" | "violet" | "rose" | "sky" | "gray"> = {
+const statusColor: Record<string, "emerald" | "amber" | "emerald" | "rose" | "sky" | "gray"> = {
   free: "emerald",
   reserved: "amber",
-  occupied: "violet",
+  occupied: "emerald",
   awaiting_bill: "rose",
   cleared: "sky",
 };
@@ -81,7 +81,7 @@ const statusColor: Record<string, "emerald" | "amber" | "violet" | "rose" | "sky
     <div class="flex items-center justify-between mb-6">
       <div>
         <h1 class="text-3xl font-semibold tracking-tight">Tables</h1>
-        <p class="text-zinc-500 mt-1">The floor plan.</p>
+        <p class="text-stone-500 mt-1">The floor plan.</p>
       </div>
       <UButton @click="showCreate = true">
         <PlusIcon class="w-4 h-4" /> New table
@@ -91,14 +91,14 @@ const statusColor: Record<string, "emerald" | "amber" | "violet" | "rose" | "sky
     <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
       <UCard v-for="t in tables" :key="t.id">
         <div class="flex items-center justify-between">
-          <div class="text-xs text-zinc-500 uppercase tracking-wider">Table</div>
+          <div class="text-xs text-stone-500 uppercase tracking-wider">Table</div>
           <UBadge :color="statusColor[t.status] || 'gray'">{{ t.status.replace("_", " ") }}</UBadge>
         </div>
         <div class="mt-2 text-3xl font-semibold">#{{ t.number }}</div>
-        <div class="mt-1 text-sm text-zinc-500 flex items-center gap-1">
+        <div class="mt-1 text-sm text-stone-500 flex items-center gap-1">
           <UsersIcon class="w-4 h-4" /> {{ t.seats }} seats
         </div>
-        <div class="mt-3 flex justify-end gap-1 pt-2 border-t border-zinc-100 dark:border-zinc-800">
+        <div class="mt-3 flex justify-end gap-1 pt-2 border-t border-stone-100 dark:border-slate-800">
           <UButton size="sm" variant="ghost" @click="openEdit(t)">
             <PencilSquareIcon class="w-3 h-3" />
           </UButton>
