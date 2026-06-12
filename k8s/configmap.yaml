@@ -4,4 +4,4 @@ metadata:
   name: frontend-config
   namespace: biteplate-frontend
 data:
-  NUXT_PUBLIC_API_BASE: "https://api.62.113.58.138.nip.io/api/v1"
+  NUXT_PUBLIC_API_BASE: "https://api.62.113.58.145.nip.io/api/v1"

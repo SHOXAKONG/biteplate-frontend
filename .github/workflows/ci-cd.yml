@@ -12,7 +12,7 @@ env:
   # GHCR requires lowercase image names. github.repository_owner preserves the
   # case of the GitHub handle, so we lowercase it in a step and reference
   # ${{ steps.owner.outputs.lc }} when tagging the image.
-  VITE_API_BASE: ${{ vars.VITE_API_BASE || 'https://api.62.113.58.138.nip.io/api/v1' }}
+  VITE_API_BASE: ${{ vars.VITE_API_BASE || 'https://api.62.113.58.145.nip.io/api/v1' }}
 
 jobs:
   build-test:
